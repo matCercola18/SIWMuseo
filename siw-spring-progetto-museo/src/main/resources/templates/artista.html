@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="'GNAM ' +|${artista.nome}${artista.cognome}|">GNAM Jackson Pollock</title>
+	<link rel="stylesheet" type="text/css" href="/css/artistaStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+	<div>	
+	<a id="linkHome" href="home.html" th:href="@{/}">
+		<h2>GNAM</h2>
+	</a>
+	</div>
+	
+	<h1 id="nomeArtista" th:text="${artista.nome}+' '+${artista.cognome}">Jackson Pollock</h1>
+	<div id="artistaContainer">
+		<div id="datiArtista">
+			<p th:text="'Nato il '+${artista.dataNascita}">Nato il 28 gennaio 1912</p>
+			<p th:text="${artista.luogoNascita}">Cody, Wyoming, Stati Uniti</p>
+
+			<p th:text="'Morto il '+ ${artista.dataMorte}">Morto il 11 agosto 1956</p>
+			<p th:text="${artista.luogoMorte}">Springs, New York, Stati Uniti</p>
+
+			<p th:text="${artista.nazionalita}">Americano</p>
+		</div>
+		<div id="biografia">
+			<p id="textBiografia" th:text="${artista.biografia}">Fondamentale artista della storia americana, Jackson Pollock nasce il 28 gennaio 1912 a Cody nello stato del Wyoming. E' il rappresentante più emblematico della cosiddetta "action painting", la corrente che rappresenta il contributo americano all'informale e che consiste nel trattare la tela con ampi e violenti movimenti del pennello, attraverso "azioni" appunto dinamiche.
+			Pollock è un possente artista e i suoi quadri emanano una selvaggia energia che non può lasciare indifferente l'osservatore.
+			Nel 1936 frequenta il Laboratory of Modern Techniques in Art di Siqueiros, dove sperimenta tecniche, strumenti e materiali di pittura non tradizionale. Dal 1938 al 1942 lavora nel Works Progress Administration del Federal Art Project nel reparto murales, ma scarsi sono l'interesse e il successo. E' un periodo di gravi difficoltà economiche e di privazioni. Nel 1940 conosce Orozco e la pittura messicana.
+			Partecipa alla grande mostra dell'Art of this Century (1942) e viene apprezzato dal critico Clement Greenberg, che lo seguirà e sosterrà per tutta la sua carriera futura. Nel 1943 incontra Peggy Guggenheim con la quale firma un contratto di cinque anni. Grazie a lei nel 1944 presenta la sua prima mostra personale che gli apre le porte della celebrità.</p>	
+			
+		</div>
+
+			
+	</div>
+
+	<div id="opereArtista">
+		<div th:each="opera:${opere}">
+			<img src="/images/Jackson-Pollock-Number-14.jpg" th:src="${opera.pathImg}">
+			<a id="opera" class="titoloOpera" href="/opera" th:href="@{'/opera/'+${opera.id}}" th:text="${opera.titolo}">Yellow Islands</a>	
+		</div> 
+	</div>
+	
+<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

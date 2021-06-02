@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>GNAM</title>
+	<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+	<link rel="stylesheet" type="text/css" href="/css/ricercaStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+
+<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM</h1>
+		</a>
+	</div>
+
+	<form th:action="@{/ricerca}"  method="POST" th:object="${filtro}">
+     
+     <label for="site-search"></label>
+	<input type="search" id="site-search" th:field=*{ricerca} placeholder="Cerca:" th:placeholder="#{cerca}">
+	<button value="submit">Search</button>
+    </form>
+<table>
+  	
+ <div  class="element" th:if="${!#lists.isEmpty(collezioni)}">
+  <h3>Collezioni:</h3>
+  	<tr th:each="collezione:${collezioni}">
+  		<td>
+		<a th:href="@{'/collezione/'+${collezione.id}}" th:text="${collezione.nome}"> 
+			Nome Collezione
+			</a>
+		</td>
+  	</tr>
+    </div>
+    
+    <div  class="element" th:if="${!#lists.isEmpty(opere)}">
+  <h3>Opere:</h3>
+  	<tr th:each="opera:${opere}">
+  		<td>
+		<a th:href="@{'/opera/'+${opera.id}}" th:text="${opera.titolo}"> 
+			Nome opera
+			</a>
+		</td>
+  	</tr>
+    </div>
+    
+    <div  class="element" th:if="${!#lists.isEmpty(artisti)}">
+  <h3>Artisti:</h3>
+  	<tr th:each="artista:${artisti}">
+  		<td>
+		<a th:href="@{'/artista/'+${artista.id}}" th:text="${artista.nome}+' '+${artista.cognome}"> 
+			Nome artista
+			</a>
+		</td>
+  	</tr>
+    </div>
+</table>
+<h3 th:if="${#lists.isEmpty(collezioni)} and ${#lists.isEmpty(opere)} and ${#lists.isEmpty(artisti)}" th:text=#{noRisultato}>Nessun Risultato</h3>
+<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

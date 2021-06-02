@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>GNAM Autori</title>
+	<link rel="stylesheet" type="text/css" href="/css/autoriStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+<div id="mainTitolo">
+		<a id="homeLink" href="home.html" th:href="@{/}"><h1>GNAM</h1></a> 
+		<h2>"Autori"</h2>
+		</div>
+		
+	<div id="filtri">
+	<form th:action="@{/autori}"  method="POST" th:object="${filtro}">
+      <input id="checkPerNome" type="checkbox" th:field=*{ordinaPerNome} value="submit"  onclick="submit();">
+  <label  for="checkPerNome" th:text="#{orderCheckboxCognome}">
+    Ordina per cognome
+  </label>
+     <label for="site-search"></label>
+	<input type="search" id="site-search" th:field=*{ricerca} placeholder="Cerca tra gli autori:" th:placeholder="#{cercaArtista}">
+	<button value="submit">Search</button>
+    </form>
+</div>
+
+<div id="father">
+	
+		<div class="child" th:each="autore:${autori}">
+		<a href="" th:href="@{'/artista/'+${autore.id}}">
+		<h4 th:text="${autore.nome}+' '+${autore.cognome}">Vasily Kandinsky</h4>
+		<h5 th:text="${autore.nazionalita}">russo</h5>
+		<h6 th:text="${#lists.size(autore.opere)} + ' opere esposte'">1 opera esposta</h6>
+		</a>		
+	
+	</div>
+</div>
+
+	
+<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

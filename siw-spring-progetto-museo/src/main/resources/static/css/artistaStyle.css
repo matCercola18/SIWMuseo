@@ -1,0 +1,105 @@
+body{
+	margin: 0px;
+	font-family: helvetica;
+}
+
+#linkHome{
+	text-decoration: none;
+	color: black;
+}
+#linkHome:hover{
+	text-decoration: underline;
+}
+#linkHome>h2{
+	font-size:  4em;
+	padding: 15px;
+}
+
+#nomeArtista{
+	font-size: 5em;
+	background-color: gold;
+	padding-left: 40px;
+	width:100%;
+	text-align: center;
+}
+
+#artistaContainer{
+	display: flex;
+	justify-content: space-around;
+}
+
+#datiArtista{
+	padding-left: 40px;	
+	width: 100%;
+	background-color: Orange;	
+}
+
+#datiArtista>p{
+	font-size: 20px;
+	padding: 20px;
+	font-weight: bold;
+}
+#biografia{
+	padding:20px;	
+	font-size: 15px;
+	text-align: center;
+}
+	
+.opera{
+	margin:10px;
+	display: flex;
+}
+
+.titoloOpera{
+	text-decoration: none;
+	color:black;
+	font-size: 3em;
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-top: 40px;
+}
+
+.titoloOpera:hover{
+	text-decoration:underline;
+}
+
+
+
+.imgOpera{
+	height:200px;
+	width: 300px;
+}
+
+#opereArtista img{
+	margin-top:20px;
+	margin-left:150px;
+}
+@media all and (max-width: 1339px){
+	a{
+	display:block;
+	margin-left:150px;
+}
+}
+@media all and (max-width: 480px) { 
+
+#nomeArtista{
+	padding: 0px;
+	padding-right: 20px;
+}
+.opera{
+	display: block;
+	text-align: center;
+}
+#opereArtista img{
+	height:230px;
+	margin-left:20px;
+}
+#opereArtista a{
+	margin-left:20px;
+}
+
+#linkHome{
+	margin-left:30px;
+	font-size:3em;
+}
+}

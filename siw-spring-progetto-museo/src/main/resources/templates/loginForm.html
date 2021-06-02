@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/base.html :: headerfiles"> </head>
+<head> 
+<link rel="stylesheet" type="text/css" href="/css/loginStyle.css">
+<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+</head>
+
+<body>
+<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM Admin</h1>
+		</a>
+		<h2>"Collezioni"</h2>
+	</div>
+<div id="formLogin">
+<div>
+		<h4>Login</h4>
+	</div>
+	<form th:action="@{/login}" method="POST">
+		<div>
+			<div>
+				<span>Username:</span>
+				<span><input name="username" type="text" required /></span>
+			</div>		
+			<div>
+				<span>Password:</span>
+				<span><input name="password" type="password" required /></span>
+			</div>
+			<div>
+				<span><button type="submit">Login</button></span>
+			</div>
+		</div>
+	</form>
+</div>
+	
+    <footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

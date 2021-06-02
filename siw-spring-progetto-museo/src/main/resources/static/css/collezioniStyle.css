@@ -1,0 +1,63 @@
+#MuseoLogo{
+	background-color:red;
+	padding:2px;
+	margin-bottom:40px;
+	text-align:center;
+}
+
+#linkToHome > h1{
+    color: black;
+    font-size: 5em;
+    margin:10px;
+}
+
+h2{
+	font-size:3em;
+}
+
+#linkToHome{
+    text-decoration: none;
+}
+
+#linkToHome:hover{
+    text-decoration: none;
+}
+
+table{
+	margin: 40px auto;
+	font-size:25px;
+}
+
+th{
+	font-size:35px;
+}
+td{
+	padding: 5px 15px;
+}
+td > a {
+	color:black;
+	text-decoration:none;
+}
+td > a:hover {
+	text-decoration:underline;
+}
+
+#erroreRicerca{
+	font-style:italic;
+	text-align:center;
+	color:red;
+}
+
+#filtri{
+	margin:10px;
+}
+label{
+	margin-right:10px;
+}
+
+@media all and (max-width: 480px) { 
+table,th{
+	font-size:1em;
+}	
+	
+}

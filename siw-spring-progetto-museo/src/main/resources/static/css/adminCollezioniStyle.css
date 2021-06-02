@@ -1,0 +1,29 @@
+@media all and (max-width:840px){
+	td{
+	font-size:15px;
+	}
+	th{
+	font-size:20px;
+	}
+	#MuseoLogo{
+	width:100%;
+	}
+	
+}
+
+@media all and (max-width:480px){
+	td{
+	font-size:12px;
+	}
+	th{
+	font-size:17px;
+	}
+	
+	td,th{
+	padding:1px;
+	margin:0px;
+	}
+	#MuseoLogo{
+	width:100%;
+	}
+}

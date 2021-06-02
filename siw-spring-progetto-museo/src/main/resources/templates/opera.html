@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title th:text="'GNAM '+${opera.titolo}">GNAM Numero14</title>
+	<link rel="stylesheet" type="text/css" href="/css/operaStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+	<div id="imgBox">
+		<a id="homeLink" href="home.html" th:href="@{/}">
+			<h2>GNAM</h2>
+		</a>
+		<img src="/images/Jackson-Pollock-Number-14.jpg" th:src="${opera.pathImg}">
+	</div>
+	<div id="box">
+	<h1 th:text="${opera.titolo}">Numero 14</h1>
+	
+	<a id="nomeArtista" href="artista.html" th:href="@{'/artista/'+${artista.id}}">
+		<h2 th:text="|${artista.nome} ${artista.cognome}|">Jackson Pollock</h2>
+	</a>
+	</div>
+	
+	<div>
+	<a id="collezione" th:href="@{'/collezione/'+${opera.collezione.id}}">
+	<p th:text="'Collezione: '+${opera.collezione.nome}">Collezione:Moderna</p>
+	</a>
+<p id="descrizione" th:text="${opera.descrizione}"> 
+Le colate nere Dal 1947 Pollock impiego' questa tecnica per produrre dipinti astratti colorati e ritmici. Tuttavia, dopo quattro anni l'artista si allontano' dalla pura astrazione, avanzando verso una pratica piu' figurativa e decisamente monocromatica, come si vede in quest'opera. 
+Numero 14 e' un grande dipinto in cui e' difficile individuare degli elementi precisi. Negli angoli sinistro e destro superiori della tela abbiamo l'impressione di vedere degli occhi, eppure la scena raffigurata rimane nel suo insieme ambigua. A causa della tavolozza limitata e 
+del metodo di applicazione della vernice che qui viene fatta colare e non sgocciolare, questa serie di dipinti creati tra il 1951 e il 1954, divennero noti come le "colate nere" di Pollock. In linea con altre serie di dipinti dell'artista, le "colate nere" furono intitolate attraverso 
+una numerazione progressiva. Questo per evitare che l'osservatore fosse distratto da significati estranei all'identita' del quadro. L'artista stesso commento' il suo modo di fare arte. Sul pavimento sono piu' a mio agio. Mi sento piu' vicino, piu' parte del dipinto, dal momento che in questo 
+modo posso camminare intorno ad esso, lavoro dai quattro lati e cosi' sono letteralmente nel dipinto. Questo ci da' un'idea della portata senza precedenti dell'arte di Pollock per cui dipingere e' un'azione fisica, guidata da impulsi interiori, una sorta di arena della tela dove il pittore si mette alla prova. 
+Una curiosita': il regista e attore Ed Harris impiego' dieci anni di ricerche per realizzare la biopic sull'artista, arrivando a imparare la tecnica dell'action painting. 
+Il film racconta gli ultimi due anni di vita di Pollock, ma si concentra di piu' sulle sbronze, sui litigi e sulle provocazioni dell'artista piuttosto che sulla sua arte. La cosa migliore per capire Pollock resta vedere dal vivo i suoi straordinari dipinti.
+</p>
+	</div>
+	
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

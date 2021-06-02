@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>GNAM</title>
+	<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+	<link rel="stylesheet" type="text/css" href="/css/adminCollezioniStyle.css">
+	<link rel="stylesheet" type="text/css" href="/css/form.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+
+<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM Admin</h1>
+		</a>
+		<h2>"Collezioni"</h2>
+		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
+	</div>
+ 
+<div id="filtri">
+	<form th:action="@{/admin/collezioni}"  method="POST" th:object="${filtro}">
+      <input id="checkPerNome" type="checkbox" th:field=*{ordinaPerNome} value="submit"  onclick="submit();">
+  <label  for="checkPerNome" th:text="#{orderCheckboxNome}">
+    Ordina per nome
+  </label>
+     <label for="site-search"></label>
+	<input type="search" id="site-search" th:field=*{ricerca} placeholder="Cerca tra le collezioni:" th:placeholder="#{cercaCollezione}">
+	<button value="submit">Search</button>
+    </form>
+</div>
+
+<div>
+	<h3>Crea nuova collezione</h3>
+	<a class="button" th:href="@{'/admin/nuovaCollezione/'}">Nuova</a>
+</div>
+<table>
+	<tr>
+    <th>Nome collezione</th>
+    <th>Descrizione</th>
+    <th>Curatore</th>
+  	</tr>
+  	
+  	<td th:if="${#lists.isEmpty(collezioni)}" id="erroreRicerca"> Nessun risultato</td>
+	<tr th:each="collezione: ${collezioni}">
+	
+	
+		<td>
+		<a th:href="@{'/collezione/'+${collezione.id}}" th:text="${collezione.nome}"> 
+			Nome Collezione
+			</a>
+		</td>
+	
+		<td th:text="${collezione.descrizione}">
+			Descrizione
+		</td>
+		
+		<td>
+		<a th:href="@{'/admin/curatore/'+${collezione.curatore.matricola}}" th:text="${collezione.curatore.nome}+' '+${collezione.curatore.cognome}"> 
+			Nome curatore
+			</a>
+		</td>
+		
+		<td>
+		<a class="button" th:href="@{'/admin/cancellaCollezione/'+${collezione.id}}">Cancella</a>
+		</td>
+		
+		<td>
+		<a class="button" th:href="@{'/admin/modificaCollezione/'+${collezione.id}}">Modifica</a>
+		</td>
+	
+	</tr>
+</table>
+
+<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

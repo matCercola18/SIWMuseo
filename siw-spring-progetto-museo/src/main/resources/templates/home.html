@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>GNAM</title>
+	<link rel="stylesheet" type="text/css" href="/css/homeStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+
+<!--Nav bar -->
+<div id="navBar">
+	<div id="museumName">
+		<h2>GNAM</h2>
+	</div>
+	<div id="navLinksBox">
+	<a class="navLinks" href="" th:href="@{/autori}" th:text=#{autori}>Autori</a>
+	<a class="navLinks" href="" th:href="@{/collezioni}" th:text=#{collezioni}>Collezioni</a>
+	<a class="navLinks" href="#FooterInfo">Informazioni</a>	
+	<a class="navLinks" th:href="@{/ricerca}">Search</a>	
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+  	<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+	</svg>
+	</div>
+	
+</div>
+
+<!--Nome museo-->
+<div>
+	<h1><p class="iniziali">G</p>alleria <p class="iniziali">N</p>azionale d'<p class="iniziali">A</p>rte <p class="iniziali">M</p>oderna e Contemporanea</h1>
+</div>
+
+<!--Immagini di opere -->
+<div id="ImgContainer">
+
+	<div id="box1" class="imgBox" >
+	<img class="img" src="/images/Dali-PersistenzaDellaMemoria.jpg">	
+	<div class="description">
+		<h5 class="titoloOpera">La persistenza della memoria</h5>
+			<p class="autore">Salvador Dalí</p>
+	</div>
+	</div>
+
+	<div id="box2" class="imgBox" >
+	<div class="description">
+		<h5 class="titoloOpera">Numero 14</h5>
+			<p class="autore">Jackson Pollock</p>
+	</div>
+	<img class="img" src="/images/Jackson-Pollock-Number-14.jpg">	
+	</div>
+
+	<div  id="box3" class="imgBox" >
+	<img class="img" src="/images/lucio-fontana-attese-1968.jpg">	
+	<div class="description">
+		<h5 class="titoloOpera">Attese 1968</h5>
+			<p class="autore">Lucio Fontana</p>
+	</div>
+	</div>
+</div>
+
+<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

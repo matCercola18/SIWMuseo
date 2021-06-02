@@ -1,0 +1,51 @@
+#father{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.child{
+	flex:1 0 31%;
+	margin:10px;
+	padding:40px;
+	font-size:20px;
+}
+h1{
+	padding:0px;
+	margin:0px;
+}
+#mainTitolo{
+	font-size: 4em;
+	text-align: center;
+	background-color: orange;
+	padding: 0;
+}
+
+a{
+	text-decoration:none;
+	color:black;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+#erroreRicerca{
+	font-style:italic;
+	text-align:center;
+	color:red;
+}
+
+#filtri{
+	margin:10px;
+}
+label{
+	margin-right:10px;
+}
+
+@media all and (max-width: 480px) { 
+	#mainTitolo{
+	width:100%;
+	font-size:2em;
+	}	
+}

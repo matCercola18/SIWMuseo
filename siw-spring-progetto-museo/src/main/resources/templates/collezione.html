@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title th:text="'GNAM &ldquo;' +${collezione.nome} +'&rdquo;' ">GNAM "Modern"</title>
+	<link rel="stylesheet" type="text/css" href="/css/collezioneStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+	
+		<div id="mainTitolo">
+		<a id="homeLink" href="home.html" th:href="@{/}"><h1>GNAM</h1></a> 
+		<h2 th:text="'&ldquo;' +${collezione.nome} +'&rdquo;' ">"Modern"</h2>
+		</div>
+
+<h4 th:text="#{curatore}+' '+${collezione.curatore.nome}+' '+${collezione.curatore.cognome}">Curatore: Matteo Cercola</h4>
+ <h6 id="descrizione" th:text="${collezione.descrizione}">Descrizione</h6>
+<div id="opereBox">
+	
+		<div class="opera" th:each="opera:${opere}">
+		<img  src="/images/KandinskyCroceBianca.jpg" th:src="${opera.pathImg}">
+		<a href="" th:href="@{'/opera/'+${opera.id}}">
+		<h5 th:text="${opera.titolo}">Croce bianca</h5>
+		</a>
+		<a href="" th:href="@{'/artista/'+${opera.artista.id}}">
+		<h6 th:text="${opera.artista.nome}+' '+${opera.artista.cognome}">Vasily Kandinsky</h6>
+		</a>		
+	
+	</div>
+</div>
+
+	
+<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

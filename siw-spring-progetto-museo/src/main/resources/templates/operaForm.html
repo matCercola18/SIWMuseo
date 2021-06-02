@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>GNAM</title>
+<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+<link rel="stylesheet" type="text/css" href="/css/form.css">
+<head th:replace="fragments/base.html :: headerfiles">
+</head>
+</head>
+<body>
+
+	<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM Admin</h1>
+		</a>
+		<h2>Aggiungi opera a:</h2>
+		<h2 th:text="${collezione.nome}">Collezione</h2>
+		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
+	</div>
+<div id="backButton">
+<a class="button" th:href="@{'/admin/modificaCollezione/'+${collezione.id}}">Indietro</a>
+</div>
+
+<form th:action="@{'/admin/addArtista'}" method="GET">
+<div class="element" id="nuovoAutore">
+				<label>Inserisci un nuovo autore</label> <input type="checkbox"
+				value="submit" onclick="submit();">
+			</div>
+</form>
+			
+			
+	<form th:action="@{'/admin/'+${collezione.id}+'/aggiungiOpera'}"
+		th:object="${opera}" method="post" enctype="multipart/form-data">
+		<div class="element"> 
+		
+      	<label>Seleziona Autore</label>
+      	<input  type="checkbox"  value="submit" onClick="showTendina()">
+      	<select id="tendina" th:field="*{artista}" style="visibility:hidden">
+    		<option selected th:value=null>Autore</option>
+        	<option th:each="autore : ${autori}"
+                th:value="${autore.id}"
+                th:text="${autore.nome}+' '+${autore.cognome}"/>
+   		 </select>
+   		 </div>	
+		
+		<h2>Inserisci opera</h2>
+			<div class="element">
+				<label>Titolo</label> <input th:field="${opera.titolo}" type="text">
+			</div>
+			<div class="element">
+				<label>Anno</label> <input th:field="${opera.anno}" type="text">
+
+			</div>
+
+			<div class="element">
+				<label>Descrizione</label>
+				<textarea th:field="${opera.descrizione}" type="text">
+					Scrivi la descrizione
+				</textarea>
+			</div>
+			
+		
+		<div class="element">
+		<label>Scegli una foto dell'opera</label>
+
+		<input type="file"  name="img" accept="image/png, image/jpeg" >
+		
+		</div>
+		
+		
+
+		<div class="element">
+			<input type="submit" value="Submit">
+		</div>
+	</form>
+
+
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+
+<script type="text/javascript">
+function showTendina(){
+	document.getElementById("tendina").style.visibility="visible";
+}
+
+
+
+
+</script>
+</body>
+</html>

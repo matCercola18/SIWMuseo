@@ -1,0 +1,116 @@
+body{
+	font-family: helvetica;
+	margin: 0px;
+	position:absolute;
+}
+
+h1{
+	font-size:5em;
+}
+#navBar{
+	background-color:gold;
+	margin-top:-20px;
+	padding-right:60px;
+	margin:-10px;
+	display: flex;
+	justify-content: space-around;
+	width:100%;
+}
+
+
+#museumName{
+	font-size: 3em;
+	padding-left: 10px;
+}
+
+#navLinksBox{
+	padding-top: 10%;
+	padding-bottom:10px;
+}
+
+.navLinks{
+	padding-left: 30px;
+	font-size: 2em;
+	text-decoration: none;
+	color: black;
+}
+
+.navLinks:hover{
+	text-decoration: underline;
+}
+
+.imgBox{
+	display: flex;
+	justify-content: space-around;
+	margin:-10px;
+	margin-top:5px;
+	margin-right: -50px;
+	padding-right: 25px;
+}
+
+.img{
+	width: 60%;
+}
+
+.description{
+	width:40%;
+}
+
+#box1{
+	background-color: orange;
+}
+
+#box2{
+	background-color: orangered;
+	padding-right: 0px;
+}
+
+#box3{
+	background-color: deepskyblue;
+}
+
+.titoloOpera{
+	font-size: 3em;
+}
+
+.autore{
+	font-size: 2em;
+}
+
+.titoloOpera,.autore{
+	padding: 20px;
+}
+
+.iniziali{
+	color:blue;
+	display: inline;
+}
+
+
+@media all and (max-width: 480px) { 
+
+.titoloOpera{
+	font-size:40px;
+}
+.autore{
+	font-size: 30px;
+}
+div{
+	width:100%;
+	font-size:8px;
+}
+h5.titoloOpera {
+    font-size: 25px;
+    padding-left: 12px;
+}
+div#box2 {
+    padding-right: 20px;
+}
+.imgBox {
+    width: 100%;
+}
+a.navLinks{
+	margin-left:30px;
+}
+
+}

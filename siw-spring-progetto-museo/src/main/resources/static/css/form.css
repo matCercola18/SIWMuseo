@@ -1,0 +1,38 @@
+h3{
+	display:inline;
+	margin:10px;
+}
+
+.button{
+    border:1px solid black;
+    text-decoration:none;
+    color:black;
+    padding:2px;
+    background-color:rgb(234, 237, 237);
+    border-radius: 3px;
+}
+
+a.button:hover{
+	text-decoration:none;
+}
+
+.element{
+	margin:5px 20px;
+	padding: 5px 20px;
+	font-size:2em;
+}
+
+select{
+	width:30%;
+	height:30px;
+	font-size:20px;
+}
+
+#backButton{
+	margin:20px;
+}
+
+textarea{
+	width:40%;
+	height:50px;
+}

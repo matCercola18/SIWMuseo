@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>GNAM</title>
+	<link rel="stylesheet" type="text/css" href="/css/homeStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+
+<!--Nav bar -->
+<div id="navBar">
+	<div id="museumName">
+		<h2>GNAM</h2>
+	</div>
+	<div id="navLinksBox">
+	<a class="navLinks" href="" th:href="@{/autori}">Autori</a>
+	<a class="navLinks" href="" th:href="@{/collezioni}">Collezioni</a>
+	<a class="navLinks" href="">Opere</a>	
+	</div>
+	
+</div>
+
+
+<!--Immagini di opere -->
+<div id="ImgContainer">
+
+	<div id="box1" class="imgBox" >
+	<img class="img" src="/images/Dali-PersistenzaDellaMemoria.jpg">	
+	<div class="description">
+		<h5 class="titoloOpera">La persistenza della memoria</h5>
+			<p class="autore">Salvador Dalí</p>
+	</div>
+	</div>
+
+	<div id="box2" class="imgBox" >
+	<div class="description">
+		<h5 class="titoloOpera">Numero 14</h5>
+			<p class="autore">Jackson Pollock</p>
+	</div>
+	<img class="img" src="/images/Jackson-Pollock-Number-14.jpg">	
+	</div>
+
+	<div  id="box3" class="imgBox" >
+	<img class="img" src="/images/lucio-fontana-attese-1968.jpg">	
+	<div class="description">
+		<h5 class="titoloOpera">Attese 1968</h5>
+			<p class="autore">Lucio Fontana</p>
+	</div>
+	</div>
+</div>
+
+<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

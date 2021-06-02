@@ -1,0 +1,10 @@
+h3{
+	margin-left:20%;
+	font-size:3em;
+}
+
+@media all and (max-width: 480px) { 
+	h3{
+	font-size:2em;
+	}
+}

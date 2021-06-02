@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>GNAM</title>
+<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+<link rel="stylesheet" type="text/css" href="/css/form.css">
+<head th:replace="fragments/base.html :: headerfiles">
+</head>
+</head>
+<body>
+
+	<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM Admin</h1>
+		</a>
+		<h2>Aggiungi artista</h2>
+		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
+	</div>
+	
+<!-- <div id="backButton">
+<a class="button" th:href="@{'/admin/modificaCollezione/'+${collezione.id}}">Indietro</a>
+</div>-->
+
+
+	<form th:action="@{'/admin/addArtista'}"
+		th:object="${artista}" method="POST">
+		<h2>Inserisci dati artista</h2>
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
+  			</div>
+			<div class="element">
+				<label>Nome</label> <input th:field="*{nome}" type="text">
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+			
+			<div class="element">
+				<label>Cognome</label> <input th:field="*{cognome}" type="text">
+				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
+			</div>
+			
+			<div class="element">
+				<label>Data nascita</label> <input th:field="*{dataNascita}" type="text">
+			</div>
+			
+			<div class="element">
+				<label>Luogo nascita</label> <input th:field="*{luogoNascita}" type="text">
+			</div>
+			
+			<div class="element">
+				<label>Data morte</label> <input th:field="*{dataMorte}" type="text">
+			</div>
+			
+			<div class="element">
+				<label>Luogo morte</label> <input th:field="*{luogoMorte}" type="text">
+			</div>
+			
+			<div class="element">
+				<label>Nazionalita</label> <input th:field="*{nazionalita}" type="text">
+			</div>
+			
+			<div class="element">
+				<label>Biografia</label>
+				<textarea th:field="*{biografia}">
+					Scrivi la descrizione
+				</textarea>
+			</div>
+			
+   		 
+
+		
+		
+
+		<div class="element">
+			<input type="submit" value="Submit">
+		</div>
+	</form>
+
+
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

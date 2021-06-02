@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>GNAM</title>
+<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+<link rel="stylesheet" type="text/css" href="/css/form.css">
+<head th:replace="fragments/base.html :: headerfiles">
+</head>
+</head>
+<body>
+
+	<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM Admin</h1>
+		</a>
+		<h2>Aggiungi curatore</h2>
+		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
+	</div>
+
+
+	<form th:action="@{'/admin/addCuratore'}"
+		th:object="${curatore}" method="POST">
+		<h2>Inserisci dati curatore</h2>
+		<div>
+			<div class="element">
+				<label>Nome</label> <input th:field="*{nome}" type="text">
+			</div>
+			
+			<div class="element">
+				<label>Cognome</label> <input th:field="*{cognome}" type="text">
+			</div>
+			
+			<div class="element">
+				<label>Data nascita</label> <input th:field="*{dataNascita}" type="text">
+			</div>
+			
+			<div class="element">
+				<label>Luogo nascita</label> <input th:field="*{luogoNascita}" type="text">
+			</div>
+			
+			<div class="element">
+				<label>email</label> <input th:field="*{email}" type="email">
+			</div>
+			
+			<div class="element">
+				<label>Telefono</label> <input th:field="*{telefono}" type="tel">
+			</div>
+			
+
+
+		<div class="element">
+			<input type="submit" value="Submit">
+		</div>
+	</form>
+
+
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

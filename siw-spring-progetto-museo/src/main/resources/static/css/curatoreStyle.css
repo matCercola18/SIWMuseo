@@ -1,0 +1,50 @@
+.element{
+	margin:10px 40px;
+	font-size:20px;
+}
+ h3{
+ display:inline;
+ }
+.input{
+ display:inline;
+ font-size:2em;
+	margin-left:10px;
+}
+li{
+	font-size:2em;
+	margin-left:10px;
+}
+a{
+	text-decoration:none;
+	color:black;
+}
+
+.button{
+    border:1px solid black;
+    text-decoration:none;
+    color:black;
+    padding:2px;
+    background-color:rgb(234, 237, 237);
+    border-radius: 3px;
+}
+
+a.button:hover{
+	text-decoration:none;
+}
+#backButton{
+	margin-left:10px;
+}
+#MuseoLogo{
+	background-color:red;
+	padding:2px;
+	margin-bottom:40px;
+	text-align:center;
+}
+
+@media all and (max-width: 480px) { 
+	p.input{font-size:1em;
+	}
+	li > a{
+	font-size:30px;
+	}
+}

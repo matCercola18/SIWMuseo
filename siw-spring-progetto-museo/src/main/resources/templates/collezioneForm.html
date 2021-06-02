@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>GNAM</title>
+<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+<link rel="stylesheet" type="text/css" href="/css/form.css">
+<head th:replace="fragments/base.html :: headerfiles">
+</head>
+</head>
+<body>
+
+	<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM Admin</h1>
+		</a>
+		<h2>Crea nuova collezione</h2>
+		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
+	</div>
+<div id="backButton">
+<a class="button" th:href="@{/admin/collezioni}">Indietro</a>
+</div>
+
+<form th:action="@{/admin/addCuratore}" method="GET">
+<div class="element" id="nuovoAutore">
+				<label>Inserisci un nuovo curatore</label> <input type="checkbox"
+				value="submit" onclick="submit();">
+			</div>
+</form>
+
+
+	<form th:action="@{/admin/nuovaCollezione}"
+		th:object="${collezione}" method="post">
+		
+		<div class="element"> 
+      	<label>Seleziona Curatore</label>
+      	<input  type="checkbox"  value="submit" onClick="showTendina()">
+      	<select id="tendina" th:field="*{curatore}" style="visibility:hidden">
+    		<option selected th:value=null>Curatore</option>
+        	<option th:each="curatore : ${curatori}"
+                th:value="${curatore.matricola}"
+                th:text="${curatore.nome}+' '+${curatore.cognome}"/>
+   		 </select>
+   		 </div>	
+   		 
+   		 
+		<h2>Nuova collezione</h2>
+		<div>
+			<div class="element">
+				<label>Nome</label> <input th:field="*{nome}" type="text">
+			</div>
+
+			<div class="element">
+				<label>Descrizione</label>
+				<textarea th:field="*{descrizione}" type="text">
+					Scrivi la descrizione
+				</textarea>
+			</div>
+			
+
+			
+		</div>
+
+		<div class="element">
+			<input type="submit" value="Submit">
+		</div>
+	</form>
+
+
+	<footer th:replace="fragments/base.html :: fondo"></footer>
+<script type="text/javascript">
+function showTendina(){
+	document.getElementById("tendina").style.visibility="visible";
+}
+
+</script>
+</body>
+</html>

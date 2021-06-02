@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>GNAM</title>
+	<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+
+<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM</h1>
+		</a>
+		<h2>"Collezioni"</h2>
+	</div>
+
+<div id="filtri">
+	<form th:action="@{/collezioni}"  method="POST" th:object="${filtro}">
+      <input id="checkPerNome" type="checkbox" th:field=*{ordinaPerNome} value="submit"  onclick="submit();">
+  <label  for="checkPerNome" th:text="#{orderCheckboxNome}">
+    Ordina per nome
+  </label>
+     <label for="site-search"></label>
+	<input type="search" id="site-search" th:field=*{ricerca} placeholder="Cerca tra le collezioni:" th:placeholder="#{cercaCollezione}">
+	<button value="submit">Search</button>
+    </form>
+</div>
+<table>
+	<tr>
+    <th>Nome collezione</th>
+    <th>Descrizione</th>
+    <th>Curatore</th>
+  	</tr>
+  	
+  	<td th:if="${#lists.isEmpty(collezioni)}" id="erroreRicerca"> Nessun risultato</td>
+	<tr th:each="collezione: ${collezioni}">
+	
+	
+		<td>
+		<a th:href="@{'/collezione/'+${collezione.id}}" th:text="${collezione.nome}"> 
+			Nome Collezione
+			</a>
+		</td>
+	
+		<td th:text="${collezione.descrizione}">
+			Descrizione
+		</td>
+		<td th:text="${collezione.curatore.nome}+' '+${collezione.curatore.cognome}">
+			Curatore
+		</td>
+	</tr>
+</table>
+
+<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

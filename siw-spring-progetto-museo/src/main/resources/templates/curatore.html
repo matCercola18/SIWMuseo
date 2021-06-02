@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>GNAM</title>
+	<link rel="stylesheet" type="text/css" href="/css/curatoreStyle.css">
+	<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+	<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM Admin</h1>
+		</a>
+		<h2>"Curatore"</h2>
+		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
+	</div>
+	<div id="backButton">
+	<a class="button" th:href="@{/admin/collezioni}">Indietro</a>
+	</div>
+	<div class="element">
+	<h3>Nome curatore:</h3>
+	<p class="input" th:text="${curatore.nome}+' '+${curatore.cognome}">Mario rossi</p>
+	</div>
+	
+	
+	<div>
+		<div class="element">
+		<h3>Data nascita:</h3>
+			<p class="input" th:text="${curatore.dataNascita}">Nato il 28 gennaio 1912</p>
+		</div>
+		
+		<div class="element">
+		<h3>Luogo nascita:</h3>
+			<p class="input"th:text="${curatore.luogoNascita}">Nato il 28 gennaio 1912</p>
+		</div>
+		
+		<div class="element">
+		<h3>Email:</h3>
+			<p class="input" th:text="${curatore.email}">Nato il 28 gennaio 1912</p>
+		</div>
+		
+		<div class="element">
+		<h3>Telefono:</h3>
+			<p class="input" th:text="${curatore.telefono}">Nato il 28 gennaio 1912</p>
+		</div>
+		</div>
+		
+		
+		<div class="element">
+			<ul>
+			<h3>Collezioni curate:</h3>
+			<li th:each="collezione : ${collezioni}">
+				<a href="collezione.html" 
+				   th:href="@{'/admin/modificaCollezione/'+${collezione.id}}" 
+				   th:text="${collezione.nome}">Collezione arte moderna</a>
+			</li>
+		</ul>
+		
+		</div>
+	
+<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

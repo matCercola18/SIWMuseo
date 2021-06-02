@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerfiles">
+	<link rel="stylesheet" type="text/css" href="/css/fragment.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8" />
+</head>
+<body>
+	
+	<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
+	
+	<footer th:fragment="fondo">
+		<div id="FooterInfo">
+		<h6 th:text=#{contattaci}>Contact us</h6>
+  		<p>Instagram: @GNAM</p>
+  		<p>Email: museo@gnam.com</p>
+  		<p>Phone: +39 3333333333</p>
+  		<h6 th:text=#{posizione}>Find us</h6>
+  		<p>Via della Grande Arte 89</p>
+  		<a id="adminButton" th:href="@{/admin/collezioni}">
+  		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+  		<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+  		<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+		</svg>
+		</a>
+  		<p>GNAM &copy;</p>
+		</div>
+
+		<div id="FooterLogo">
+			<a id="homeLink" href="home.html" th:href="@{/}">
+			<h2>GNAM</h2>
+			<h6>Galleria Nazionale d'Arte Moderna e Contemporanea</h6>
+		</a>
+		</div>
+	</footer>
+</body>
+</html>
