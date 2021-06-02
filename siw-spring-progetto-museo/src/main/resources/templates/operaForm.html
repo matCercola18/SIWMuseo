@@ -21,7 +21,8 @@
 <a class="button" th:href="@{'/admin/modificaCollezione/'+${collezione.id}}">Indietro</a>
 </div>
 
-<form th:action="@{'/admin/addArtista'}" method="GET">
+<!--<form th:action="@{'/admin/addArtista'}" method="GET">-->
+<form th:action="@{'/admin/'+${collezione.id}+'/addArtista'}" method="GET">
 <div class="element" id="nuovoAutore">
 				<label>Inserisci un nuovo autore</label> <input type="checkbox"
 				value="submit" onclick="submit();">

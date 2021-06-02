@@ -3,7 +3,6 @@ package it.uniroma3.siw.spring.service;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.spring.model.Credentials;
@@ -14,9 +13,6 @@ public class CredentialsService {
 
 	@Autowired
 	private CredentialsRepository credentialsRepository;
-
-	@Autowired
-	private PasswordEncoder passwordEncoder;
 
 	@Transactional 
 	public Credentials getCredentials(Long id) {

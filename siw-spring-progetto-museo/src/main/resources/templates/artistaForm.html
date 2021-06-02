@@ -17,12 +17,13 @@
 		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
 	</div>
 	
-<!-- <div id="backButton">
+ <div id="backButton">
 <a class="button" th:href="@{'/admin/modificaCollezione/'+${collezione.id}}">Indietro</a>
-</div>-->
+</div>
 
 
-	<form th:action="@{'/admin/addArtista'}"
+	<!--<form th:action="@{'/admin/addArtista'}"-->
+	<form th:action="@{'/admin/'+${collezione.id}+'/addArtista'}"
 		th:object="${artista}" method="POST">
 		<h2>Inserisci dati artista</h2>
 		<div th:if="${#fields.hasGlobalErrors()}">

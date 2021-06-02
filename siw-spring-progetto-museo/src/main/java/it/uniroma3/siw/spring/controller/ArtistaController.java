@@ -75,24 +75,31 @@ public class ArtistaController {
 	}
 	
 	
-	@GetMapping("/admin/addArtista")
-	public String addArtista(Model model) {
+	@GetMapping("/admin/{idC}/addArtista")
+	public String addArtista(@PathVariable("idC") Long idCollezione,Model model) {
 		model.addAttribute("artista", new Artista());
+		model.addAttribute("collezione", collezioneService.getById(idCollezione));
 		return "artistaForm";
 	}
 	
 	
-	@PostMapping("/admin/addArtista")
-	public String aggiungiArtista(@ModelAttribute("artista") Artista artista,Model model,BindingResult bindingResult) {
+	@PostMapping("/admin/{idC}/addArtista")
+	public String aggiungiArtista(@PathVariable("idC") Long idCollezione,@ModelAttribute("artista") Artista artista,Model model,BindingResult bindingResult) {
+		Collezione collezione =collezioneService.getById(idCollezione);
 		this.artistaValidator.validate(artista, bindingResult);
 		if(!bindingResult.hasErrors()) {
 			artistaService.inserisci(artista);
 			
 			
-			model.addAttribute("collezioni",collezioneService.tutte());
-			model.addAttribute("filtro", filtro);
-			return "adminCollezioni";
+//			model.addAttribute("collezioni",collezioneService.tutte());
+//			model.addAttribute("filtro", filtro);
+//			return "adminCollezioni";
+			List<Opera> opere=collezione.getOpere();
+			model.addAttribute("collezione", collezione);
+			model.addAttribute("opere", opere);
+			return "modificaCollezione";
 		}
+		model.addAttribute("collezione", collezione);
 		return "artistaForm";
 	}
 }

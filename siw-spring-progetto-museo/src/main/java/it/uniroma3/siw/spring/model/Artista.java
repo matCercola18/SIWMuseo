@@ -65,15 +65,15 @@ import lombok.Data;
 		this.opere =new ArrayList<>();
 	}
 	
-	@Override
-	public boolean equals(Object o) {
-		Artista that =(Artista)o;
-
-			
-		if(that==null||!(this.nome.equals(that.getNome())&&this.getCognome().equals(that.getCognome())))
-			return false;
-		else
-			return true;
-	}
+//	@Override
+//	public boolean equals(Object o) {
+//		Artista that =(Artista)o;
+//
+//			
+//		if(that==null||!(this.nome.equals(that.getNome())&&this.getCognome().equals(that.getCognome())))
+//			return false;
+//		else
+//			return true;
+//	}
 	
 }
