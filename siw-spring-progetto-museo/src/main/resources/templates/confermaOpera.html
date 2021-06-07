@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>GNAM Jackson Pollock</title>
+		<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+		<link rel="stylesheet" type="text/css" href="/css/confermaStyle.css">
+	<link rel="stylesheet" type="text/css" href="/css/form.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+<div id="MuseoLogo">
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			<h1>GNAM Admin</h1>
+		</a>
+		<h2>"Opera"</h2>
+		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
+	</div>
+	
+	
+    <div id="contenitore">
+    	<h2>Confermi di voler cancellare l'opera?</h2>
+    	<a class="button" th:href="@{'/admin/modificaCollezione/'+${collezione.id}}">Annulla</a>
+    	<a class="button" th:href="@{'/admin/cancellaOpera/'+${opera.id}}">Conferma</a>
+    </div>
+
+
+<footer th:replace="fragments/base.html :: fondo"></footer>
+</body>
+</html>

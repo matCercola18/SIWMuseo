@@ -93,7 +93,7 @@ public class CollectionController {
 		return "collezione";
 	}
 	
-	/*Operazioni sulle collezioni dell'admi*/
+	/*Operazioni sulle collezioni dell'admin*/
 	
 	@GetMapping("/admin/collezioni")
 	public String adminCollezioni(Model model){
@@ -208,5 +208,18 @@ public class CollectionController {
 		return "adminCollezioni";
 	}
 	
+	@GetMapping("/admin/confermaCancellazione/Collezione/{id}")
+	public String getPaginaConfermaCancellaCollezione(Model model,@PathVariable("id") Long id) {
+		model.addAttribute("collezione", collezioneService.getById(id));
+		return "confermaCollezione";
+	}
+	
+	@GetMapping("/admin/confermaCancellazione/Opera/{id}")
+	public String getPaginaConfermaCancellaOpera(Model model,@PathVariable("id") Long id) {
+		Opera opera = operaService.findById(id);
+		model.addAttribute("opera", opera);
+		model.addAttribute("collezione", opera.getCollezione());
+		return "confermaOpera";
+	}
 	
 }

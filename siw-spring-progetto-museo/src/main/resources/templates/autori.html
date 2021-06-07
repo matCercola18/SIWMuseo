@@ -25,7 +25,7 @@
 
 <div id="father">
 	
-		<div class="child" th:each="autore:${autori}">
+		<div class="child" th:each="autore:${autori}" th:if="${not #lists.isEmpty(autore.opere)}">
 		<a href="" th:href="@{'/artista/'+${autore.id}}">
 		<h4 th:text="${autore.nome}+' '+${autore.cognome}">Vasily Kandinsky</h4>
 		<h5 th:text="${autore.nazionalita}">russo</h5>
