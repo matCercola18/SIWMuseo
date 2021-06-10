@@ -43,7 +43,10 @@
                 th:text="${autore.nome}+' '+${autore.cognome}"/>
    		 </select>
    		 </div>	
-		
+		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p id="errore" th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
+  			</div>
+  			
 		<h2>Inserisci opera</h2>
 			<div class="element">
 				<label>Titolo</label> <input th:field="${opera.titolo}" type="text">

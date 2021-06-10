@@ -42,6 +42,9 @@
    		 </select>
    		 </div>	
    		 
+   		 <div th:if="${#fields.hasGlobalErrors()}">
+  			<p id="errore" th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
+  			</div>
    		 
 		<h2>Nuova collezione</h2>
 		<div>

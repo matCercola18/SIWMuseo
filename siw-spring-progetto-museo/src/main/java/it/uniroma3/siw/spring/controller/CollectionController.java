@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,6 +43,12 @@ public class CollectionController {
 
 	@Autowired
 	private CuratoreService curatoreService;
+
+	@Autowired
+	private CollezioneValidator collezioneValidator;
+
+	@Autowired
+	private OperaValidator operaValidator;
 	
 	@GetMapping("/addCollection")
 	public String addCollection(Model model) {
@@ -165,9 +172,17 @@ public class CollectionController {
 	}
 	
 	@PostMapping("/admin/{id}/aggiungiOpera")
-	public String postaddOperaACollezione(@PathVariable("id") Long id, @ModelAttribute("opera") Opera opera,@RequestParam("img") MultipartFile img,Model model) {
+	public String postaddOperaACollezione(@PathVariable("id") Long id, @ModelAttribute("opera") Opera opera,@RequestParam("img") MultipartFile img,Model model,BindingResult bindingResult) {
 		Collezione collezione=collezioneService.getById(id);
 		
+		this.operaValidator.validate(opera,bindingResult);
+		if(bindingResult.hasErrors()) {
+			List<Artista> autori=artistaService.tutti();
+			model.addAttribute("collezione", collezione);
+			model.addAttribute("autori",autori);
+			
+			return "operaForm";
+		}
 		
 		String nomeFile=opera.getTitolo().replaceAll(" ", "");
 		String pathFile="src/main/resources/static/images/"+nomeFile+".jpg";
@@ -201,11 +216,16 @@ public class CollectionController {
 	}
 	
 	@PostMapping("/admin/nuovaCollezione")
-	public String postAddCollezione(@ModelAttribute("collezione") Collezione collezione,Model model) {
-		collezioneService.inserisci(collezione);
-		model.addAttribute("filtro", filtro);
-		model.addAttribute("collezioni", collezioneService.tutte());
-		return "adminCollezioni";
+	public String postAddCollezione(@ModelAttribute("collezione") Collezione collezione,Model model,BindingResult bindingResult) {
+		this.collezioneValidator.validate(collezione,bindingResult);
+		if(!bindingResult.hasErrors()) {
+			collezioneService.inserisci(collezione);
+			model.addAttribute("filtro", filtro);
+			model.addAttribute("collezioni", collezioneService.tutte());
+			return "adminCollezioni";
+		}
+		model.addAttribute("curatori",curatoreService.tutti());
+		return "collezioneForm";
 	}
 	
 	@GetMapping("/admin/confermaCancellazione/Collezione/{id}")
