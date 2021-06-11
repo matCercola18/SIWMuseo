@@ -8,9 +8,11 @@
 </head>
 <body>
 	<div id="MuseoLogo">
+	<h1>
 		<a id="linkToHome" href="home.html" th:href="@{/}">
-			<h1>GNAM Admin</h1>
+			GNAM Admin
 		</a>
+		</h1>
 		<h2>"Curatore"</h2>
 		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
 	</div>
@@ -46,9 +48,9 @@
 		</div>
 		
 		
+		<h3>Collezioni curate:</h3>
 		<div class="element">
 			<ul>
-			<h3>Collezioni curate:</h3>
 			<li th:each="collezione : ${collezioni}">
 				<a href="collezione.html" 
 				   th:href="@{'/admin/modificaCollezione/'+${collezione.id}}" 

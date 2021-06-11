@@ -5,10 +5,9 @@
 	text-align:center;
 }
 
-#linkToHome > h1{
-    color: black;
-    font-size: 5em;
-    margin:10px;
+#linkToHome{
+	font-size:5em;
+	color:black;
 }
 
 h2{

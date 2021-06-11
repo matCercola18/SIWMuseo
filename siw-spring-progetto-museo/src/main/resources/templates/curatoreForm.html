@@ -10,9 +10,11 @@
 <body>
 
 	<div id="MuseoLogo">
+	<h1>
 		<a id="linkToHome" href="home.html" th:href="@{/}">
-			<h1>GNAM Admin</h1>
+			GNAM Admin
 		</a>
+		</h1>
 		<h2>Aggiungi curatore</h2>
 		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
 	</div>
@@ -46,7 +48,7 @@
 				<label>Telefono</label> <input th:field="*{telefono}" type="tel">
 			</div>
 			
-
+</div>
 
 		<div class="element">
 			<input type="submit" value="Submit">

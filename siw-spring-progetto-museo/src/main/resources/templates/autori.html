@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="mainTitolo">
-		<a id="homeLink" href="home.html" th:href="@{/}"><h1>GNAM</h1></a> 
+		<h1><a id="homeLink" href="home.html" th:href="@{/}">GNAM</a></h1> 
 		<h2>"Autori"</h2>
 		</div>
 		
@@ -26,11 +26,11 @@
 <div id="father">
 	
 		<div class="child" th:each="autore:${autori}" th:if="${not #lists.isEmpty(autore.opere)}">
-		<a href="" th:href="@{'/artista/'+${autore.id}}">
-		<h4 th:text="${autore.nome}+' '+${autore.cognome}">Vasily Kandinsky</h4>
-		<h5 th:text="${autore.nazionalita}">russo</h5>
-		<h6 th:text="${#lists.size(autore.opere)} + ' opere esposte'">1 opera esposta</h6>
-		</a>		
+		
+		<h4><a href="" th:href="@{'/artista/'+${autore.id}}" th:text="${autore.nome}+' '+${autore.cognome}">Vasily Kandinsky</a></h4>
+		<h5 ><a href="" th:href="@{'/artista/'+${autore.id}}"th:text="${autore.nazionalita}" >russo</a></h5>
+		<h6 ><a href="" th:href="@{'/artista/'+${autore.id}}" th:text="${#lists.size(autore.opere)} + ' opere esposte'">1 opera esposta</a></h6>
+			
 	
 	</div>
 </div>

@@ -13,27 +13,29 @@ img{
 
 h1{
 	text-align: center;
-	font-size: 4em;
+	font-size: 4.5em;
 	margin-left:10px;
 }
 
-#homeLink>h2{
+#homeLink{
 	margin: 0px;
 	padding:10px;
-	font-size: 3em;
-}
-#homeLink{
 	color: Black;
 }
-#homeLink:hover{
-	text-decoration: underline;
-}
-#nomeArtista{
+
+#linkHome{
+	font-size:3em;
 	color:black;
 }
-#nomeArtista>h2{
-	text-align: center;
-	font-size: 2em;
+#homeLink:hover{
+	text-decoration: none;
+}
+
+#artista{
+	text-align:center;
+}
+#nomeArtista{
+	font-size: 1.5em;
 	color:black;
 	padding: 5px;
 }
@@ -64,10 +66,9 @@ p #descrizione{
 }
 #collezione{
 	color:black;
-}
-#collezione > p{
 	padding:30px;
 }
+
 /* Smartphone o piccoli Tablet */
 @media all and (max-width: 480px) { 
 #homeLink>h2{

@@ -6,10 +6,13 @@
 	<head th:replace="fragments/base.html :: headerfiles"> </head>
 </head>
 <body>
-	<div>	
+	<div>
+	<h2>	
 	<a id="linkHome" href="home.html" th:href="@{/}">
-		<h2>GNAM</h2>
+		GNAM
 	</a>
+	</h2>
+	
 	</div>
 	
 	<h1 id="nomeArtista" th:text="${artista.nome}+' '+${artista.cognome}">Jackson Pollock</h1>

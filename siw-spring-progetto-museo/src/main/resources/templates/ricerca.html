@@ -9,9 +9,11 @@
 <body>
 
 <div id="MuseoLogo">
+<h1>
 		<a id="linkToHome" href="home.html" th:href="@{/}">
-			<h1>GNAM</h1>
+			GNAM
 		</a>
+		</h1>
 	</div>
 
 	<form th:action="@{/ricerca}"  method="POST" th:object="${filtro}">

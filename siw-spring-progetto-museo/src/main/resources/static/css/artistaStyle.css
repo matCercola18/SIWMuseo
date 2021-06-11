@@ -10,7 +10,7 @@ body{
 #linkHome:hover{
 	text-decoration: underline;
 }
-#linkHome>h2{
+#linkHome{
 	font-size:  4em;
 	padding: 15px;
 }

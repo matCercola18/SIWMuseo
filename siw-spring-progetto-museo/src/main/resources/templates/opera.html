@@ -7,23 +7,29 @@
 </head>
 <body>
 	<div id="imgBox">
-		<a id="homeLink" href="home.html" th:href="@{/}">
-			<h2>GNAM</h2>
+	<h2>
+		<a id="linkHome" href="home.html" th:href="@{/}">
+			GNAM
 		</a>
+		</h2>
 		<img src="/images/Jackson-Pollock-Number-14.jpg" th:src="${opera.pathImg}">
 	</div>
 	<div id="box">
 	<h1 th:text="${opera.titolo}">Numero 14</h1>
 	
-	<a id="nomeArtista" href="artista.html" th:href="@{'/artista/'+${artista.id}}">
-		<h2 th:text="|${artista.nome} ${artista.cognome}|">Jackson Pollock</h2>
+	<h2 id="artista">
+	<a id="nomeArtista" href="artista.html" th:href="@{'/artista/'+${artista.id}}" th:text="|${artista.nome} ${artista.cognome}|">
+		Jackson Pollock
 	</a>
+	</h2>
 	</div>
 	
 	<div>
-	<a id="collezione" th:href="@{'/collezione/'+${opera.collezione.id}}">
-	<p th:text="'Collezione: '+${opera.collezione.nome}">Collezione:Moderna</p>
+	<p>
+	<a id="collezione" th:href="@{'/collezione/'+${opera.collezione.id}}" th:text="'Collezione: '+${opera.collezione.nome}">
+	Collezione:Moderna
 	</a>
+	</p>
 <p id="descrizione" th:text="${opera.descrizione}"> 
 Le colate nere Dal 1947 Pollock impiego' questa tecnica per produrre dipinti astratti colorati e ritmici. Tuttavia, dopo quattro anni l'artista si allontano' dalla pura astrazione, avanzando verso una pratica piu' figurativa e decisamente monocromatica, come si vede in quest'opera. 
 Numero 14 e' un grande dipinto in cui e' difficile individuare degli elementi precisi. Negli angoli sinistro e destro superiori della tela abbiamo l'impressione di vedere degli occhi, eppure la scena raffigurata rimane nel suo insieme ambigua. A causa della tavolozza limitata e 
