@@ -1,9 +1,17 @@
+/*Flexbox, flexwrap se gli elementi non riescono a stare in una riga allora
+occupano più righe*/
 #father{
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
 }
 
+/*Flex, per impostare insieme
+grow-shrink-basis
+grow elementi crescono per occupare tutto il contenitore 1
+shrink 0 gli elementi mantengono le proprie dimensioni con 1 modifica la dimensione
+per rimanere dentro il contenitore
+basis definisce la dimensione iniziale di un flex item*/
 .child{
 	flex:1 0 31%;
 	margin:10px;
@@ -34,6 +42,7 @@ a:hover{
 	font-style:italic;
 	text-align:center;
 	color:red;
+	font-size:2em;
 }
 
 #filtri{
@@ -43,6 +52,10 @@ label{
 	margin-right:10px;
 }
 
+.sottoTitolo{
+	font-size:1em;
+}
+/*Per impostare lo stile in modalità smartphone*/
 @media all and (max-width: 480px) { 
 	#mainTitolo{
 	width:100%;

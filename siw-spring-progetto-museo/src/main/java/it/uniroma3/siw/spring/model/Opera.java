@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.model;
 
+import java.util.Base64;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,20 +15,20 @@ import lombok.Data;
 @Data public class Opera {
 
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@Id 
+	@GeneratedValue(strategy = GenerationType.AUTO) 
+	private Long id; 
 	 
-	private String titolo;
+	private String titolo; 
 	
-	private String anno;
+	private String anno; 
 	
-	@Column(length = 2000)
-	private String descrizione;
+	@Column(length = 2000) 
+	private String descrizione;  
+	 
+	private byte[] imgByte;   
 	
-	private String pathImg;
-	
-	@ManyToOne
+	@ManyToOne 
 	private Collezione collezione;
 	
 	@ManyToOne
@@ -42,6 +44,8 @@ import lombok.Data;
 		this.descrizione = descrizione;
 	}
 	
-	
+	public String getStringImg() {
+		return Base64.getEncoder().encodeToString(this.imgByte);
+	}
 	
 }

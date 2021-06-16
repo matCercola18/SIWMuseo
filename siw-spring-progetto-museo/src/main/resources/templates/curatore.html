@@ -21,10 +21,12 @@
 	</div>
 	<div class="element">
 	<h3>Nome curatore:</h3>
-	<p class="input" th:text="${curatore.nome}+' '+${curatore.cognome}">Mario rossi</p>
+	<p class="input" th:text="${curatore.nome}">Mario</p>
 	</div>
-	
-	
+	<div class="element">
+	<h3>Cognome curatore:</h3>
+	<p class="input" th:text="${curatore.cognome}">Rossi</p>
+	</div>
 	<div>
 		<div class="element">
 		<h3>Data nascita:</h3>

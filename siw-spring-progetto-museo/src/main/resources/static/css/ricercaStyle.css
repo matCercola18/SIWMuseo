@@ -1,8 +1,21 @@
 h3{
 	margin-left:20%;
-	font-size:3em;
+	font-size:1em;
+}
+#erroreRicerca{
+	font-style:italic;
+	text-align:center;
+	color:red;
+	font-size:2em;
 }
 
+#artista{
+	font-size:0.5em;
+	margin-left:10px;
+}
+.title{
+	margin-left:-20px;
+}
 @media all and (max-width: 480px) { 
 	h3{
 	font-size:2em;

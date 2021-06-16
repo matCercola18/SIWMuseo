@@ -15,14 +15,17 @@
 			GNAM Admin
 		</a>
 		</h1>
-		<h2>Aggiungi curatore</h2>
+		<h2 class="sottoTitolo" >Aggiungi curatore</h2>
 		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
 	</div>
 
+ <div id="backButton">
+<a class="button" th:href="@{'/admin/nuovaCollezione'}">Indietro</a>
+</div>
 
 	<form th:action="@{'/admin/addCuratore'}"
 		th:object="${curatore}" method="POST">
-		<h2>Inserisci dati curatore</h2>
+		<h2 class="sottoTitolo">Inserisci dati curatore</h2>
 		<div>
 			<div class="element">
 				<label>Nome</label> <input th:field="*{nome}" type="text">

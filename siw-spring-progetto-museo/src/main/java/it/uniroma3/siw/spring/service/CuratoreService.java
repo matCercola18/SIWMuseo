@@ -26,6 +26,7 @@ public class CuratoreService {
 		return curatoreRepository.findById(id).orElse(null);
 	}
 
+	@Transactional
 	public List<Curatore> tutti() {
 		return (List<Curatore>) curatoreRepository.findAll();
 	}

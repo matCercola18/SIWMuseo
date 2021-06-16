@@ -18,7 +18,7 @@ a{
 	text-decoration:none;
 	color:black;
 }
-
+/*border radius per arrotondare gli angoli del bordo*/
 .button{
     border:1px solid black;
     text-decoration:none;

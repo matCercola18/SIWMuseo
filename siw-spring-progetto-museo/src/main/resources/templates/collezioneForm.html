@@ -15,14 +15,14 @@
 			GNAM Admin
 		</a>
 		</h1>
-		<h2>Crea nuova collezione</h2>
+		<h2 class="sottoTitolo">Crea nuova collezione</h2>
 		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
 	</div>
 <div id="backButton">
 <a class="button" th:href="@{/admin/collezioni}">Indietro</a>
 </div>
 
-<form th:action="@{/admin/addCuratore}" method="GET">
+<form  th:action="@{/admin/addCuratore}" method="GET">
 <div class="element" id="nuovoAutore">
 				<label>Inserisci un nuovo curatore</label> <input type="checkbox"
 				value="submit" onclick="submit();">
@@ -30,10 +30,9 @@
 </form>
 
 
-	<form th:action="@{/admin/nuovaCollezione}"
-		th:object="${collezione}" method="post">
+	<form  th:action="@{/admin/nuovaCollezione}" th:object="${collezione}" method="post">
 		
-		<div class="element"> 
+		<div class="element" th:if="${not #lists.isEmpty(curatori)}"> 
       	<label>Seleziona Curatore</label>
       	<input  type="checkbox"  value="submit" onClick="showTendina()">
       	<select id="tendina" th:field="*{curatore}" style="visibility:hidden">
@@ -47,19 +46,22 @@
    		 <div th:if="${#fields.hasGlobalErrors()}">
   			<p id="errore" th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
   			</div>
-   		 
-		<h2>Nuova collezione</h2>
+
+		<h2 class="sottoTitolo">Nuova collezione</h2>
 		<div>
 			<div class="element">
-				<label>Nome</label> <input th:field="*{nome}" type="text">
+				<label>Nome</label> 
+				<input th:field="*{nome}" type="text">
 			</div>
 
 			<div class="element">
 				<label>Descrizione</label>
-				<textarea th:field="*{descrizione}">
+				<textarea th:field="*{descrizione}"  maxlength="250">
 					Scrivi la descrizione
 				</textarea>
 			</div>
+			
+			
 			
 
 			

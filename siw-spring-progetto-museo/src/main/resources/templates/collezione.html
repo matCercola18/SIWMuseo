@@ -17,13 +17,17 @@
 <div id="opereBox">
 	
 		<div class="opera" th:each="opera:${opere}">
-		<img  src="/images/KandinskyCroceBianca.jpg" th:src="${opera.pathImg}">
-		<a href="" th:href="@{'/opera/'+${opera.id}}">
-		<h5 th:text="${opera.titolo}">Croce bianca</h5>
+		<img  src="/images/KandinskyCroceBianca.jpg" th:src="'data:image/jpeg;base64,'+${opera.getStringImg()}">
+		<h5><a href="" th:href="@{'/opera/'+${opera.id}}" th:text="${opera.titolo}">
+		Croce bianca
 		</a>
-		<a href="" th:href="@{'/artista/'+${opera.artista.id}}">
-		<h6 th:text="${opera.artista.nome}+' '+${opera.artista.cognome}">Vasily Kandinsky</h6>
+		</h5>
+		
+		<h6>
+		<a href="" th:href="@{'/artista/'+${opera.artista.id}}" th:text="${opera.artista.nome}+' '+${opera.artista.cognome}">
+		Vasily Kandinsky
 		</a>		
+		</h6>
 	
 	</div>
 </div>

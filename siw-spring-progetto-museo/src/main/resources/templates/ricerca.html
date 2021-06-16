@@ -24,40 +24,56 @@
     </form>
 <table>
   	
- <div  class="element" th:if="${!#lists.isEmpty(collezioni)}">
-  <h3>Collezioni:</h3>
-  	<tr th:each="collezione:${collezioni}">
+  	<tr class="title"> 
+  	<td th:if="${!#lists.isEmpty(collezioni)}">
+  	<h3 th:text="#{collezioni}+':'">Collezioni:</h3>
+  	</td>
+  	</tr>
+  	
+  	
+  	<tr class="element" th:if="${!#lists.isEmpty(collezioni)}" th:each="collezione:${collezioni}">
   		<td>
 		<a th:href="@{'/collezione/'+${collezione.id}}" th:text="${collezione.nome}"> 
 			Nome Collezione
 			</a>
 		</td>
   	</tr>
-    </div>
     
-    <div  class="element" th:if="${!#lists.isEmpty(opere)}">
-  <h3>Opere:</h3>
-  	<tr th:each="opera:${opere}">
+    <tr class="title"> 
+  	<td th:if="${!#lists.isEmpty(opere)}">
+  	<h3 th:text="#{opere}+':'">Opere:</h3>
+  	</td>
+  	</tr>
+  	
+  	<tr class="element" th:if="${!#lists.isEmpty(opere)}" th:each="opera:${opere}">
   		<td>
 		<a th:href="@{'/opera/'+${opera.id}}" th:text="${opera.titolo}"> 
 			Nome opera
 			</a>
+			<a id="artista" th:href="@{'/artista/'+${opera.artista.id}}" th:text="${opera.artista.nome}+' '+${opera.artista.cognome}"> 
+			Nome autore
+			</a>
 		</td>
   	</tr>
-    </div>
     
-    <div  class="element" th:if="${!#lists.isEmpty(artisti)}">
-  <h3>Artisti:</h3>
-  	<tr th:each="artista:${artisti}">
+    <tr class="title" > 
+  	<td th:if="${!#lists.isEmpty(artisti)}">
+  	<h3 th:text="#{autori}+':'">Artisti:</h3>
+  	</td>
+  	</tr>
+  	
+    
+  	<tr class="element" th:if="${!#lists.isEmpty(artisti)}" th:each="artista:${artisti}">
   		<td>
 		<a th:href="@{'/artista/'+${artista.id}}" th:text="${artista.nome}+' '+${artista.cognome}"> 
 			Nome artista
 			</a>
 		</td>
   	</tr>
-    </div>
+
+
 </table>
-<h3 th:if="${#lists.isEmpty(collezioni)} and ${#lists.isEmpty(opere)} and ${#lists.isEmpty(artisti)}" th:text=#{noRisultato}>Nessun Risultato</h3>
+<div id="erroreRicerca" th:if="${#lists.isEmpty(collezioni)} and ${#lists.isEmpty(opere)} and ${#lists.isEmpty(artisti)}" th:text=#{noRisultato}>Nessun Risultato</div>
 <footer th:replace="fragments/base.html :: fondo"></footer>
 
 </body>

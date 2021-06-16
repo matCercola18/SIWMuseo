@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>GNAM</title>
+	<link rel="stylesheet" type="text/css" href="/css/collezioniStyle.css">
+	<head th:replace="fragments/base.html :: headerfiles"> </head>
+</head>
+<body>
+
+<div id="MuseoLogo">
+<h1>
+		<a id="linkToHome" href="home.html" th:href="@{/}">
+			GNAM
+		</a>
+		</h1>
+		
+		<h2 class="sottoTitolo" th:text="#{Opere}">"Opere"</h2>
+	</div>
+
+<div id="filtri">
+	<form th:action="@{/opere}"  method="POST" th:object="${filtro}">
+      <input class="filtro" id="checkPerNome" type="checkbox" th:field=*{ordinaPerNome} value="submit"  onclick="submit();">
+  <label  for="checkPerNome" th:text="#{orderCheckboxNome}">
+    Ordina per nome
+  </label>
+
+  <input class="filtro" type="radio"  id="checkPerAnnoCres" th:field=*{ordinaPerAnno} th:name="anno" value="cres"  onclick="submit();">
+  <label for="checkPerAnnoCres" th:text="#{orderCheckboxAnnoCres}">Ordina per anno crescente</label>
+
+
+  <input class="filtro" type="radio"  id="checkPerAnnoDesc" th:field=*{ordinaPerAnno} th:name="anno" value="desc"  onclick="submit();">
+  <label for="checkPerAnnoDesc" th:text="#{orderCheckboxAnnoDesc}">Ordina per anno decrescente</label>
+
+     <label for="site-search"></label>
+	<input type="search" id="site-search" size="28" th:field=*{ricerca} placeholder="Cerca tra le opere:" th:placeholder="#{cercaOpere}">
+	<button value="submit">Search</button>
+    </form>
+</div>
+<table>
+	<tr th:if="${not #lists.isEmpty(opere)}">
+    <th th:text="#{titoloOpera}">Nome opera</th>
+    <th th:text="#{anno}">Anno</th>
+    <th th:text="#{autore}">Autore</th>
+  	</tr>
+  	
+  	<tr>
+  	<td th:if="${#lists.isEmpty(opere)}" id="erroreRicerca" th:text="#{noRisultato}"> Nessun risultato</td>
+  	</tr>
+  	
+  	
+	<tr th:each="opera: ${opere}">
+	
+	
+		<td>
+		<a th:href="@{'/opera/'+${opera.id}}" th:text="${opera.titolo}"> 
+			Titolo opera
+			</a>
+		</td>
+		<td th:text="${opera.anno}">
+		Anno
+		</td>
+		<td>
+		<a th:href="@{'/artista/'+${opera.artista.id}}" th:text="${opera.artista.nome}+' '+${opera.artista.cognome}"> 
+			Autore
+			</a>
+			</td>
+	</tr>
+</table>
+
+<footer th:replace="fragments/base.html :: fondo"></footer>
+
+</body>
+</html>

@@ -4,8 +4,11 @@ body{
 	position:absolute;
 }
 
-h1{
+#titoloPerEsteso{
 	font-size:5em;
+	/*Le due prossime proprietà servono per mettere lo stesso stile di un h1*/
+	font-weight:bold;
+	margin: 0.67em 0;
 }
 #navBar{
 	background-color:gold;

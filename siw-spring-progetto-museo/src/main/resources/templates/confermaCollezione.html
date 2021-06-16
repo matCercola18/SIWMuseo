@@ -20,9 +20,9 @@
 	
 	
     <div id="contenitore">
-    	<h2>Confermi di voler cancellare la collezione?</h2>
+    	<h2 class="sottoTitolo">Confermi di voler cancellare la collezione?</h2>
     	<h4>Questo comporta anche la cancellazione di tutte le opere della collezione</h4>
-    	<a class="button" href="/admin/collezioni">Annulla</a>
+    	<a class="button" th:href="@{'/admin/modificaCollezione/'+${collezione.id}}">Annulla</a>
     	<a class="button" th:href="@{'/admin/cancellaCollezione/'+${collezione.id}}">Conferma</a>
     	
     </div>

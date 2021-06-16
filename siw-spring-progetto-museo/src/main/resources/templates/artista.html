@@ -21,8 +21,8 @@
 			<p th:text="'Nato il '+${artista.dataNascita}">Nato il 28 gennaio 1912</p>
 			<p th:text="${artista.luogoNascita}">Cody, Wyoming, Stati Uniti</p>
 
-			<p th:text="'Morto il '+ ${artista.dataMorte}">Morto il 11 agosto 1956</p>
-			<p th:text="${artista.luogoMorte}">Springs, New York, Stati Uniti</p>
+			<p th:if="${not #strings.isEmpty(artista.dataMorte) }" th:text="'Morto il '+ ${artista.dataMorte}">Morto il 11 agosto 1956</p>
+			<p th:if="${not #strings.isEmpty(artista.luogoMorte)}" th:text="${artista.luogoMorte}">Springs, New York, Stati Uniti</p>
 
 			<p th:text="${artista.nazionalita}">Americano</p>
 		</div>
@@ -39,7 +39,7 @@
 
 	<div id="opereArtista">
 		<div th:each="opera:${opere}">
-			<img src="/images/Jackson-Pollock-Number-14.jpg" th:src="${opera.pathImg}">
+			<img src="/images/Jackson-Pollock-Number-14.jpg" th:src="'data:image/jpeg;base64,'+${opera.getStringImg()}">
 			<a id="opera" class="titoloOpera" href="/opera" th:href="@{'/opera/'+${opera.id}}" th:text="${opera.titolo}">Yellow Islands</a>	
 		</div> 
 	</div>

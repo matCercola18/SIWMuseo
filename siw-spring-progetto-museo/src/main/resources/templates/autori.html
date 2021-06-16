@@ -8,7 +8,7 @@
 <body>
 <div id="mainTitolo">
 		<h1><a id="homeLink" href="home.html" th:href="@{/}">GNAM</a></h1> 
-		<h2>"Autori"</h2>
+		<h2 class="sottoTitolo" th:text="#{Autori}">"Autori"</h2>
 		</div>
 		
 	<div id="filtri">
@@ -18,7 +18,7 @@
     Ordina per cognome
   </label>
      <label for="site-search"></label>
-	<input type="search" id="site-search" th:field=*{ricerca} placeholder="Cerca tra gli autori:" th:placeholder="#{cercaArtista}">
+	<input type="search" id="site-search" size="28" th:field=*{ricerca} placeholder="Cerca tra gli autori:" th:placeholder="#{cercaArtista}">
 	<button value="submit">Search</button>
     </form>
 </div>
@@ -35,6 +35,9 @@
 	</div>
 </div>
 
+
+  	<div th:if="${#lists.isEmpty(autori)}" id="erroreRicerca" th:text="#{noRisultato}"> Nessun risultato</div>
+  	
 	
 <footer th:replace="fragments/base.html :: fondo"></footer>
 </body>

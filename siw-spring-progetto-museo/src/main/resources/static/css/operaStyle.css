@@ -68,6 +68,9 @@ p #descrizione{
 	color:black;
 	padding:30px;
 }
+#collezione:hover{
+	text-decoration:underline;
+}
 
 /* Smartphone o piccoli Tablet */
 @media all and (max-width: 480px) { 

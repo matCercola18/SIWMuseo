@@ -30,6 +30,7 @@ public class ArtistaValidator implements Validator{
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "cognome", "required");
 		
 		if(!errors.hasErrors()) {
+			logger.debug("confermato: valori non nulli");
 			if(artistaService.alreadyExists((Artista)target)) {
 				logger.debug("duplicato");
 				errors.reject("duplicato");

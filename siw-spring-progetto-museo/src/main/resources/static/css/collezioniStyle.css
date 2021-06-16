@@ -10,7 +10,7 @@
 	color:black;
 }
 
-h2{
+.sottoTitolo{
 	font-size:3em;
 }
 
@@ -25,13 +25,14 @@ h2{
 table{
 	margin: 40px auto;
 	font-size:25px;
+	padding:20px;
 }
 
 th{
 	font-size:35px;
 }
 td{
-	padding: 5px 15px;
+	padding: 5px 30px;
 }
 td > a {
 	color:black;
@@ -53,7 +54,12 @@ td > a:hover {
 label{
 	margin-right:10px;
 }
+.filtro{
+	display:inline;
+	margin:5px;
+}
 
+/*Per impostare lo stile in modalità smartphone*/
 @media all and (max-width: 480px) { 
 table,th{
 	font-size:1em;

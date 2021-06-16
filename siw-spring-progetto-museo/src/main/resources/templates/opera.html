@@ -12,7 +12,7 @@
 			GNAM
 		</a>
 		</h2>
-		<img src="/images/Jackson-Pollock-Number-14.jpg" th:src="${opera.pathImg}">
+		<img src="/images/Jackson-Pollock-Number-14.jpg" th:src="'data:image/jpeg;base64,'+${opera.getStringImg()}">
 	</div>
 	<div id="box">
 	<h1 th:text="${opera.titolo}">Numero 14</h1>

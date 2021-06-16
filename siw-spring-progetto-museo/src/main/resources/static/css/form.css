@@ -6,7 +6,7 @@ h3{
 	display:inline;
 	margin:10px;
 }
-
+/*borderr radius per smussare gli angoli del bordo*/
 .button{
     border:1px solid black;
     text-decoration:none;
@@ -43,4 +43,12 @@ textarea{
 #errore{
 	padding:10px;
 	color:red;
+}
+
+#artistaSelezionato{
+	font-size:2em;
+	margin:10px;
+}
+.menuAdmin{
+	margin:10px;
 }

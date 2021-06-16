@@ -40,4 +40,19 @@ public class OperaService {
 	public List<Opera> getByTitolo(String titolo){
 		return operaRepository.findByTitolo(titolo);
 	}
+
+	@Transactional
+	public List<Opera> tutteOrdinateCresc() {
+		return operaRepository.findAllByOrderByTitoloAsc();
+	}
+
+	@Transactional
+	public List<Opera> tutteOrdinatePerAnnoCres() {
+		return operaRepository.findAllByOrderByAnnoAsc();
+	}
+	
+	@Transactional
+	public List<Opera> tutteOrdinatePerAnnoDesc() {
+		return operaRepository.findAllByOrderByAnnoDesc();
+	}
 }

@@ -2,6 +2,8 @@ package it.uniroma3.siw.spring.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,16 +30,18 @@ public class CuratoreController {
 	@Autowired
 	private Filtro filtro;
 
+	private final Logger logger=LoggerFactory.getLogger(this.getClass());
+	
 	@GetMapping("/admin/addCuratore")
-	public String addCuratore(Model model) {
-		
+	public String addCuratore(Model model,@ModelAttribute("collezione") Collezione collezione) {
+		logger.debug("Admin: Aggiungi curatore");
 		model.addAttribute("curatore", new Curatore());
 		
 		return "curatoreForm";
 	}
 
 	@PostMapping("/admin/addCuratore")
-	public String aggiungiCuratore(@ModelAttribute("curatore") Curatore curatore, Model model) {
+	public String aggiungiCuratore(@ModelAttribute("curatore") Curatore curatore,@ModelAttribute("collezione") Collezione collezione, Model model) {
 
 		curatoreService.inserisci(curatore);
 

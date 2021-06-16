@@ -14,7 +14,7 @@
 		</a>
 		</h1>
 		
-		<h2>"Collezioni"</h2>
+		<h2 class="sottoTitolo" th:text="#{Collezioni}">"Collezioni"</h2>
 	</div>
 
 <div id="filtri">
@@ -24,18 +24,22 @@
     Ordina per nome
   </label>
      <label for="site-search"></label>
-	<input type="search" id="site-search" th:field=*{ricerca} placeholder="Cerca tra le collezioni:" th:placeholder="#{cercaCollezione}">
+	<input type="search" id="site-search" size="28" th:field=*{ricerca} placeholder="Cerca tra le collezioni:" th:placeholder="#{cercaCollezione}">
 	<button value="submit">Search</button>
     </form>
 </div>
 <table>
-	<tr>
-    <th>Nome collezione</th>
-    <th>Descrizione</th>
-    <th>Curatore</th>
+	<tr th:if="${not #lists.isEmpty(collezioni)}">
+    <th th:text="#{nomeCollezione}">Nome collezione</th>
+    <th th:text="#{descrizione}">Descrizione</th>
+    <th th:text="#{curatore}">Curatore</th>
   	</tr>
   	
-  	<td th:if="${#lists.isEmpty(collezioni)}" id="erroreRicerca"> Nessun risultato</td>
+  	<tr>
+  	<td th:if="${#lists.isEmpty(collezioni)}" id="erroreRicerca" th:text="#{noRisultato}"> Nessun risultato</td>
+  	</tr>
+  	
+  	
 	<tr th:each="collezione: ${collezioni}">
 	
 	

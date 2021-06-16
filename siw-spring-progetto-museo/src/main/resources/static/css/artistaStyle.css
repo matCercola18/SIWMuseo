@@ -7,7 +7,8 @@ body{
 	text-decoration: none;
 	color: black;
 }
-#linkHome:hover{
+
+#linkHome:hover{  
 	text-decoration: underline;
 }
 #linkHome{
@@ -22,7 +23,7 @@ body{
 	width:100%;
 	text-align: center;
 }
-
+/*Definito un flex container*/
 #artistaContainer{
 	display: flex;
 	justify-content: space-around;
@@ -73,13 +74,16 @@ body{
 #opereArtista img{
 	margin-top:20px;
 	margin-left:150px;
+	height:300px;
 }
+/*Per impostare lo stile in modalità tablet*/
 @media all and (max-width: 1339px){
 	a{
 	display:block;
 	margin-left:150px;
 }
 }
+/*Per impostare lo stile in modalità smartphone*/
 @media all and (max-width: 480px) { 
 
 #nomeArtista{

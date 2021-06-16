@@ -16,7 +16,7 @@ h4{
 	text-align: right;
 	padding-right:30px;
 }
-
+/*calc permette di eseguire il calcolo*/
 h5{
 	font-size: calc(1em + 10px);
 	margin:0px;
@@ -40,7 +40,8 @@ a:hover{
 img{
 	height: 300px;
 }
-
+/*Flexbox, flexwrap se gli elementi non riescono a stare in una riga allora
+occupano più righe*/
 #opereBox{
 	padding: 20px;
 	display: flex;

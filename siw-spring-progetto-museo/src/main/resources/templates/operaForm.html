@@ -15,26 +15,29 @@
 			GNAM Admin
 		</a>
 		</h1>
-		<h2>Aggiungi opera a:</h2>
-		<h2 th:text="${collezione.nome}">Collezione</h2>
+		<h2 class="sottoTitolo">Aggiungi opera a:</h2>
+		<h2 th:text="${collezione.nome}" class="sottoTitolo">Collezione</h2>
 		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
 	</div>
 <div id="backButton">
 <a class="button" th:href="@{'/admin/modificaCollezione/'+${collezione.id}}">Indietro</a>
 </div>
 
-<!--<form th:action="@{'/admin/addArtista'}" method="GET">-->
-<form th:action="@{'/admin/'+${collezione.id}+'/addArtista'}" method="GET">
+
+<form th:unless="${opera.artista}" th:action="@{'/admin/'+${collezione.id}+'/addArtista'}" method="GET">
 <div class="element" id="nuovoAutore">
 				<label>Inserisci un nuovo autore</label> <input type="checkbox"
 				value="submit" onclick="submit();">
 			</div>
 </form>
 			
+			<div th:if="${opera.artista}" id="artistaSelezionato">
+			<p th:text="'Artista: '+${opera.artista.nome}+' '+${opera.artista.cognome}">Nome e cognome Artista selezionato </p>
+			</div>
 			
 	<form th:action="@{'/admin/'+${collezione.id}+'/aggiungiOpera'}"
 		th:object="${opera}" method="post" enctype="multipart/form-data">
-		<div class="element"> 
+		<div class="element" th:if="${not #lists.isEmpty(autori)}"> 
 		
       	<label>Seleziona Autore</label>
       	<input  type="checkbox"  value="submit" onClick="showTendina()">
@@ -49,7 +52,7 @@
   			<p id="errore" th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
   			</div>
   			
-		<h2>Inserisci opera</h2>
+		<h2 class="sottoTitolo">Inserisci opera</h2>
 			<div class="element">
 				<label>Titolo</label> <input th:field="${opera.titolo}" type="text">
 			</div>
@@ -60,7 +63,7 @@
 
 			<div class="element">
 				<label>Descrizione</label>
-				<textarea th:field="${opera.descrizione}">
+				<textarea th:field="${opera.descrizione}"  maxlength="1500">
 					Scrivi la descrizione
 				</textarea>
 			</div>

@@ -14,7 +14,7 @@
 		<h6 th:text=#{contattaci}>Contact us</h6>
   		<p>Instagram: @GNAM</p>
   		<p>Email: museo@gnam.com</p>
-  		<p>Phone: +39 3333333333</p>
+  		<p th:text="#{telefono}+' +39 3333333333'">Telefono: +39 3333333333</p>
   		<h6 th:text=#{posizione}>Find us</h6>
   		<p>Via della Grande Arte 89</p>
   		<a id="adminButton" th:href="@{/admin/collezioni}">
@@ -27,10 +27,14 @@
 		</div>
 
 		<div id="FooterLogo">
-			<a id="homeLink" href="home.html" th:href="@{/}">
-			<h2>GNAM</h2>
-			<h6>Galleria Nazionale d'Arte Moderna e Contemporanea</h6>
-		</a>
+			
+			<h2> 
+			<a id="homeLink" href="home.html" th:href="@{/}">GNAM</a>
+			</h2>
+			<h6>
+			<a id="homeLink" href="home.html" th:href="@{/}">Galleria Nazionale d'Arte Moderna e Contemporanea</a>
+			</h6>
+		
 		</div>
 	</footer>
 </body>

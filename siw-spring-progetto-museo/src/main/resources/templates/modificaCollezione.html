@@ -17,25 +17,24 @@
 		<h2 th:text="'Modifica collezione:'+${collezione.nome}">Modifica Modern</h2>
 		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
 	</div>
-<!-- 
-<div id="filtri">
-	<form th:action="@{/admin/collezioni}"  method="POST" th:object="${filtro}">
-      <input id="checkPerNome" type="checkbox" th:field=*{ordinaPerNome} value="submit"  onclick="submit();">
-  <label  for="checkPerNome" th:text="#{orderCheckboxNome}">
-    Ordina per nome
-  </label>
-     <label for="site-search"></label>
-	<input type="search" id="site-search" th:field=*{ricerca} placeholder="Cerca tra le collezioni:" th:placeholder="#{cercaCollezione}">
-	<button value="submit">Search</button>
-    </form>
-</div> -->
+
 <div id="backButton">
 <a class="button" th:href="@{/admin/collezioni}">Indietro</a>
 </div>
 <div>
-	
+	<div class="menuAdmin">
 	<h3>Aggiungi nuova opera</h3>
 	<a class="button" th:href="@{'/admin/'+${collezione.id}+'/aggiungiOpera'}">Nuova</a>
+	</div>
+	<div class="menuAdmin">
+	<h3>Vai alla collezione</h3>
+	<a class="button" th:href="@{'/collezione/'+${collezione.id}}">Vai</a>
+	</div>
+	<div class="menuAdmin">
+	<h3>Cancella collezione</h3>
+	<a class="button" th:href="@{'/admin/confermaCancellazione/Collezione/'+${collezione.id}}">Cancella</a>
+	</div>
+	
 </div>
 <table>
 	<tr>
@@ -44,7 +43,6 @@
     <th>Autore</th>
   	</tr>
   	
-  	<!-- <td th:if="${#lists.isEmpty(collezioni)}" id="erroreRicerca"> Nessun risultato</td> -->
 	<tr th:each="opera: ${opere}">
 	
 	
@@ -57,18 +55,14 @@
 		<td th:text="${opera.anno}">
 			Anno
 		</td>
-		<td th:text="${opera.artista.nome}+' '+${opera.artista.cognome}">
+		<td>
+			<a th:href="@{'/artista/'+${opera.artista.id}}" th:text="${opera.artista.nome}+' '+${opera.artista.cognome}"> 
 			Autore
+			</a>
 		</td>
 		<td>
-		<!-- <a class="button" th:href="@{'/admin/cancellaOpera/'+${opera.id}}">Cancella</a>-->
 		<a class="button" th:href="@{'/admin/confermaCancellazione/Opera/'+${opera.id}}">Cancella</a>
 		</td>
-	<!-- 
-		<td>
-		<a class="button" th:href="@{'/admin/modificaOpera/'+${opera.id}}">Modifica</a>
-		</td>-->
-	
 	</tr>
 </table>
 

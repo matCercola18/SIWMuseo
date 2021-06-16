@@ -15,19 +15,18 @@
 			GNAM Admin
 		</a>
 		</h1>
-		<h2>Aggiungi artista</h2>
+		<h2 class="sottoTitolo">Aggiungi artista</h2>
 		<a th:fragment="adminLogout" id="adminLogout" href="/logout">Logout</a>
 	</div>
 	
  <div id="backButton">
-<a class="button" th:href="@{'/admin/modificaCollezione/'+${collezione.id}}">Indietro</a>
+<a class="button" th:href="@{'/admin/'+${collezione.id}+'/aggiungiOpera'}">Indietro</a>
 </div>
 
 
-	<!--<form th:action="@{'/admin/addArtista'}"-->
 	<form th:action="@{'/admin/'+${collezione.id}+'/addArtista'}"
 		th:object="${artista}" method="POST">
-		<h2>Inserisci dati artista</h2>
+		<h2 class="sottoTitolo">Inserisci dati artista</h2>
 		<div th:if="${#fields.hasGlobalErrors()}">
   			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">errore globale</p>
   			</div>
@@ -63,7 +62,7 @@
 			
 			<div class="element">
 				<label>Biografia</label>
-				<textarea th:field="*{biografia}">
+				<textarea th:field="*{biografia}"  maxlength="1500">
 					Scrivi la descrizione
 				</textarea>
 			</div>
